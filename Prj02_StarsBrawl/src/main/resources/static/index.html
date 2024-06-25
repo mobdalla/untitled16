@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+    div {
+        display: inline;
+        width: 40px;
+        height: 40px;
+        
+    }
+    #mm img{
+        width: 40px;
+        height: 40px;
+        margin-left: 30px;
+        margin-bottom: 30px;
+    }
+    p {
+        display: inline;
+        margin-left: -40px;
+    }
+</style>
+</head>
+<body>
+    <div id="mm">
+        
+    </div>
+    <script>
+        const URL = "/brawl"
+        fetch(URL)
+            .then(res => res.json())
+            .then(listabrawl =>{
+                for (const pokemon of listabrawl){
+                    const Img = document.createElement('img')
+                    Img.src =pokemon.img
+                    document.getElementById("mm").append(Img)
+                    const p = document.createElement('p')
+                    p.textContent=pokemon.nome
+                    document.getElementById("mm").append(p)
+                   // document.body.append(Img)
+                }
+            })
+        
+    </script>
+
+</body>
+</html>
